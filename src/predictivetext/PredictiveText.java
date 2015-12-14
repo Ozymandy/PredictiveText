@@ -15,7 +15,11 @@ public class PredictiveText {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+       Trie trie = new Trie();
+       trie.put("Apple");
+       trie.put("Tree");
+       System.out.println(trie.find("Tree"));
+       System.out.println(trie.find("Honey"));
     }
     
 }
