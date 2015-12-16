@@ -20,14 +20,13 @@ public class PredictiveText {
      */
     public static void main(String[] args) {
        Trie trie = new Trie();
-       Service service = new Service(new TxtReader("E:\\ManinBlack.txt"));
+       Service service = new Service(new TxtReader("E:\\War.txt"));
 //       Comparator compare = new MapValueComparator(temp);
 //       Map<String,Integer> map = new TreeMap<String,Integer>(compare);
 //       map.putAll(temp);
-       for (Map.Entry<String,Integer> entry : service.sortByFrequency()) {
-       System.out.println(entry.getValue() + " "+entry.getKey());
+//       for (Map.Entry<String,Integer> entry : service.sortByFrequency()) {
+//       System.out.println(entry.getValue() + " "+entry.getKey());
+//    }
+       service.writeToDictionary();
     }
-       System.out.println(System.getProperty("user.dir"));
-    }
-    
 }
