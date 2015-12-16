@@ -60,8 +60,12 @@ public class Trie {
         }
         temp.isLeaf = false;
     }
+    private Node moveTo(String keyword){
+        return null;
+    }
     static class Node {
         Map<Character,Node> children = new TreeMap<Character,Node>();
         boolean isLeaf; //check for intermediate node
+        int Priority;
     }
 }

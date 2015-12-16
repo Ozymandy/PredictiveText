@@ -5,6 +5,10 @@
  */
 package predictivetext;
 
+import java.util.*;
+import java.util.Map.Entry;
+import java.util.stream.*;
+
 /**
  *
  * @author Ozymandy
@@ -16,10 +20,14 @@ public class PredictiveText {
      */
     public static void main(String[] args) {
        Trie trie = new Trie();
-       trie.put("Apple");
-       trie.put("Tree");
-       System.out.println(trie.find("Tree"));
-       System.out.println(trie.find("Honey"));
+       Service service = new Service(new TxtReader("E:\\ManinBlack.txt"));
+//       Comparator compare = new MapValueComparator(temp);
+//       Map<String,Integer> map = new TreeMap<String,Integer>(compare);
+//       map.putAll(temp);
+       for (Map.Entry<String,Integer> entry : service.sortByFrequency()) {
+       System.out.println(entry.getValue() + " "+entry.getKey());
+    }
+       System.out.println(System.getProperty("user.dir"));
     }
     
 }
