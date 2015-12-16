@@ -24,7 +24,9 @@ public class TxtReader implements Readable{
                 while((temp=reader.readLine())!=null){
                 temparray = temp.replaceAll("\\p{Punct}", "").split("\\s+");
                 for(String str:temparray){
+                    if(str.length()>3){
                     words.add(str.toLowerCase());
+                    }
                 }  
                 }
         }
@@ -34,5 +36,6 @@ public class TxtReader implements Readable{
         }
         return words;
     }
+    
     
 }

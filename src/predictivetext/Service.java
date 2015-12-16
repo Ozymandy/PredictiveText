@@ -40,23 +40,6 @@ public class Service {
 	return list;
     }
     public void writeToDictionary(){
-        String strpath = "E:\\dictionary.txt";//System.getProperty("user.dir");
-        Path path = Paths.get(strpath);
-        //path.concat("dictionary.txt");
-        List<Map.Entry<String,Integer>> list = this.sortByFrequency();
-        try(BufferedWriter writer = Files.newBufferedWriter(path,StandardCharsets.UTF_8,StandardOpenOption.APPEND))
-        {
-            String temp;
-            for(Map.Entry<String,Integer> entry:list){
-                temp = entry.getValue() + " "+ entry.getKey();
-                writer.write(temp);
-                writer.newLine();
-            }
-        }
-        catch(IOException ex){
-             
-            System.out.println(ex.getMessage());
-        } 
     }
 //    public Map<Integer,String> reverseMap(){
 //        Map<String,Integer> temp = this.calculateFrequency();
