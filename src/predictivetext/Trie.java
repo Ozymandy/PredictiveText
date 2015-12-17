@@ -37,7 +37,7 @@ public class Trie {
         List<String> list = new ArrayList<String>();
         for(Map.Entry<Character,Node> entry:temp.children.entrySet()){
             if(entry.getValue().isLeaf){
-                list.add(keyword);
+                list.add(keyword.concat(entry.getKey().toString()));
             }
             else{
                 list.addAll(this.getWords(tempword.concat(entry.getKey().toString())));
