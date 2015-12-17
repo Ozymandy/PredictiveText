@@ -10,13 +10,14 @@ import java.util.*;
  * @author Ozymandy
  */
 public class Trie {
-    Node root;
+    private Node root;
     public Trie(){
     root = new Node() {{ isLeaf = false;}};
     }
     public void put(String word,int priority){
         Node temp = root;
         char[] array = word.toLowerCase().toCharArray(); //word by every char
+        String teststring = ""; //for testing
         for(int i =0;i<array.length;i++){
             if(temp.children.containsKey(array[i])){
                 temp = temp.children.get(array[i]);
@@ -25,6 +26,7 @@ public class Trie {
                 temp.children.put(array[i], new Node());
                 temp = temp.children.get(array[i]);
             }
+            teststring = teststring.concat(Character.toString(array[i]));
         }
         temp.isLeaf = true;
         temp.Priority=priority;

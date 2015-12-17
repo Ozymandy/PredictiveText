@@ -20,7 +20,20 @@ public class PredictiveText {
      */
     public static void main(String[] args) {
        Trie trie =null;
-       DictionaryLayer dictionary = new DictionaryLayer("E:\\Dictionary.txt");
-       trie = dictionary.writeToTrie();
+       //DictionaryLayer dictionary = new DictionaryLayer("E:\\dictionary.txt");
+       //trie = dictionary.writeToTrie();
+       //boolean test;
+       //test =trie.find("сказал");
+       //System.out.println(test);
+       String keyword = "bo";
+       trie = new Trie();
+       trie.put("Borussia",4);
+       trie.put("Boring",5);
+       trie.put("Bored",7);
+       trie.put("Test",4);
+       List<String> variants = trie.getWords(keyword);
+       for(String variant:variants){
+           System.out.println(variant);
+       }
     }
 }

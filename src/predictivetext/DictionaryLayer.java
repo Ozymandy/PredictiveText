@@ -67,15 +67,18 @@ public class DictionaryLayer {
         try(BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(DICTIONARY_PATH), "UTF8"))){
             String[] temparray;
             String temp;
+            String intstring=null;
             while((temp=reader.readLine())!=null){
             temparray = temp.split(" ");
-            trie.put(temparray[1], Integer.parseInt(temparray[0]));
+            if(intstring==null){ intstring = temparray[0].substring(1); } //check for first line because of System.Empty
+            else { intstring = temparray[0]; } //if not first line there is no empty space
+            trie.put(temparray[1], Integer.parseInt(intstring));
             }
         }
         catch(IOException ex){    
             System.out.println(ex.getMessage());
         } 
-        return null;
+        return trie;
         }
 //    private void Increment(String word){
 //        Path path = Paths.get(DICTIONARY_PATH);
