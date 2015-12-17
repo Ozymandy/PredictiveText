@@ -14,7 +14,7 @@ public class Trie {
     public Trie(){
     root = new Node() {{ isLeaf = false;}};
     }
-    public void put(String word){
+    public void put(String word,int priority){
         Node temp = root;
         char[] array = word.toLowerCase().toCharArray(); //word by every char
         for(int i =0;i<array.length;i++){
@@ -27,6 +27,7 @@ public class Trie {
             }
         }
         temp.isLeaf = true;
+        temp.Priority=priority;
     }
     public List<String> getWords(String keyword){
         String tempword = keyword;
@@ -37,19 +38,11 @@ public class Trie {
                 list.add(keyword);
             }
             else{
-                this.getWords(tempword.concat(entry.getKey().toString()));
+                list.addAll(this.getWords(tempword.concat(entry.getKey().toString())));
             }
         }
         return list;
     }
-//    private String getWord(String keyword, Node temp){
-//        List<
-//        for(Map.Entry<Character,Node> entry:temp.children.entrySet()){
-//            if()
-//            this.getWord(keyword.concat(entry.getKey().toString()));
-//        }
-//        return null;
-//    }
     public boolean find(String word){
         Node temp = this.moveTo(word);
         boolean isExists=false;

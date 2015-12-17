@@ -19,6 +19,8 @@ public class PredictiveText {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-       Trie trie = new Trie();
+       Trie trie =null;
+       DictionaryLayer dictionary = new DictionaryLayer("E:\\Dictionary.txt");
+       trie = dictionary.writeToTrie();
     }
 }

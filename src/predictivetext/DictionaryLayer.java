@@ -27,9 +27,14 @@ public class DictionaryLayer {
         {
             String temp;
             for(Map.Entry<String,Integer> entry:list){
+                if(!this.Exists(entry.getKey())){
                 temp = entry.getValue() + " "+ entry.getKey();
                 writer.write(temp);
                 writer.newLine();
+                }
+                else{
+                    
+                }
             }
         }
         catch(IOException ex){
@@ -37,4 +42,60 @@ public class DictionaryLayer {
             System.out.println(ex.getMessage());
         } 
     }
+    private boolean Exists(String word){
+        boolean Exists = false;
+        try(BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(DICTIONARY_PATH), "UTF8"))){
+            String[] temparray;
+            String temp;
+
+            while((temp=reader.readLine())!=null){
+                temparray = temp.split(" ");
+                if(word.equals(temparray[1])){
+                    Exists=true;
+                    break;
+                }
+            }
+        }
+        catch(IOException ex){
+             
+            System.out.println(ex.getMessage());
+        } 
+        return Exists;
+    }
+    public Trie writeToTrie(){
+        Trie trie = new Trie();
+        try(BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(DICTIONARY_PATH), "UTF8"))){
+            String[] temparray;
+            String temp;
+            while((temp=reader.readLine())!=null){
+            temparray = temp.split(" ");
+            trie.put(temparray[1], Integer.parseInt(temparray[0]));
+            }
+        }
+        catch(IOException ex){    
+            System.out.println(ex.getMessage());
+        } 
+        return null;
+        }
+//    private void Increment(String word){
+//        Path path = Paths.get(DICTIONARY_PATH);
+//        try(BufferedWriter writer = Files.newBufferedWriter(path,StandardCharsets.UTF_8,StandardOpenOption.APPEND))
+//        {
+//            String temp;
+//            for(Map.Entry<String,Integer> entry:list){
+//                if(!this.Exists(entry.getKey())){
+//                temp = entry.getValue() + " "+ entry.getKey();
+//                writer.write(temp);
+//                writer.newLine();
+//                }
+//                else{
+//                    
+//                }
+//            }
+//        }
+//        catch(IOException ex){
+//             
+//            System.out.println(ex.getMessage());
+//        } 
+//    }
 }
