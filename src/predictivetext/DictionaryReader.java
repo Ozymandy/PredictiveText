@@ -10,25 +10,23 @@ import java.io.*;
  *
  * @author Ozymandy
  */
-public class TxtReader implements Readable{
+public class DictionaryReader implements Readable{
     private String readPath;
-    public TxtReader(String readPath){   
+    public DictionaryReader(String readPath){   
         this.readPath = readPath;
     }
     @Override
     public List<String> read() {
         ArrayList<String> words = new ArrayList<String>();
         try(BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(readPath), "Cp1251"))){
-                String[] temparray;
-                String temp;
-                while((temp=reader.readLine())!=null){
-                temparray = temp.replaceAll("\\p{Punct}", "").split("\\s+");
+            String[] temparray;
+            String temp;
+            while((temp=reader.readLine())!=null){
+                temparray = temp.split(" ");
                 for(String str:temparray){
-                    if(str.length()>3){
                     words.add(str.toLowerCase());
-                    }
                 }  
-                }
+            }
         }
         catch(IOException ex){
              
@@ -36,6 +34,5 @@ public class TxtReader implements Readable{
         }
         return words;
     }
-    
     
 }

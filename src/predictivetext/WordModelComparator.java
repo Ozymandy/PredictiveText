@@ -9,14 +9,12 @@ import java.util.*;
  *
  * @author Ozymandy
  */
-public class MapValueComparator implements Comparator {
-    public MapValueComparator() {
+public class  WordModelComparator implements Comparator {
+    public WordModelComparator() {
     }
     @Override
     public int compare(Object a, Object b) {
-        Map.Entry<String,Integer> entryA = (Map.Entry<String,Integer>)a;
-        Map.Entry<String,Integer> entryB = (Map.Entry<String,Integer>)b;
-        return (entryB.getValue()).compareTo(entryA.getValue());
+        return ((Integer)((WordModel)b).getPriority()).compareTo(((Integer)((WordModel)a).getPriority()));
     }
 
 }

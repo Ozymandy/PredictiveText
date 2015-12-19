@@ -30,28 +30,20 @@ public class Service {
         }
         return frequencyMap;
     }
-    public List<Map.Entry<String,Integer>> sortByFrequency(){
-        List<Map.Entry<String,Integer>> list = new ArrayList<Map.Entry<String,Integer>>();
-        Map<String,Integer> temp = this.calculateFrequency();
-        for(Map.Entry<String,Integer> entry:temp.entrySet()){
-            list.add(entry);
-        }
-        Collections.sort(list,new MapValueComparator());
-	return list;
-    }
-    public void writeToDictionary(){
-    }
-//    public Map<Integer,String> reverseMap(){
+//    private List<Map.Entry<String,Integer>> sortByFrequency(){
+//        List<Map.Entry<String,Integer>> list = new ArrayList<Map.Entry<String,Integer>>();
 //        Map<String,Integer> temp = this.calculateFrequency();
-//        Map<Integer,String> invertedTemp = new TreeMap<Integer,String>();
-//        Set<String> keySet = temp.keySet();
-//        Collection<Integer> valuesSet = temp.values();
-//        for(String key:keySet){
-//            if(temp.containsKey(key)){
-//              invertedTemp.put(temp.get(key),key);
-//            }
+//        for(Map.Entry<String,Integer> entry:temp.entrySet()){
+//            list.add(entry);
 //        }
-//        return invertedTemp;
+//        Collections.sort(list,new WordModelComparator());
+//	return list;
 //    }
-    
+    public void writeToTrie(Trie trie){
+        Map<String,Integer> list = this.calculateFrequency();
+        for(Map.Entry<String,Integer> entry:list.entrySet()){
+            trie.put(entry.getKey(),entry.getValue());
+        }
+        
+    } 
 }

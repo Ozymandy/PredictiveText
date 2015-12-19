@@ -8,33 +8,32 @@ package predictivetext;
 import java.util.*;
 import java.util.Map.Entry;
 import java.util.stream.*;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
 
 /**
  *
  * @author Ozymandy
  */
-public class PredictiveText {
+public class PredictiveText extends Application {
 
     /**
      * @param args the command line arguments
      */
+    @Override
+    public void start(Stage stage) throws Exception {
+        Parent root = FXMLLoader.load(getClass().getResource("Form.fxml"));
+        
+        Scene scene = new Scene(root);
+        
+        stage.setScene(scene);
+        stage.show();
+    }
     public static void main(String[] args) {
-       Trie trie =null;
-       DictionaryLayer dictionary = new DictionaryLayer("E:\\dictionary.txt");
-       trie = dictionary.writeToTrie();
-       boolean test;
-       String keyword = "пи";
-       test =trie.find("сказал");
-       System.out.println(test);
-//       String keyword = "bo";
-//       trie = new Trie();
-//       trie.put("Borussia",4);
-//       trie.put("Boring",5);
-//       trie.put("Bored",7);
-//       trie.put("Test",4);
-       List<String> variants = trie.getWords(keyword);
-       for(String variant:variants){
-           System.out.println(variant);
-       }
+       launch(args);
     }
 }

@@ -79,26 +79,5 @@ public class DictionaryLayer {
             System.out.println(ex.getMessage());
         } 
         return trie;
-        }
-//    private void Increment(String word){
-//        Path path = Paths.get(DICTIONARY_PATH);
-//        try(BufferedWriter writer = Files.newBufferedWriter(path,StandardCharsets.UTF_8,StandardOpenOption.APPEND))
-//        {
-//            String temp;
-//            for(Map.Entry<String,Integer> entry:list){
-//                if(!this.Exists(entry.getKey())){
-//                temp = entry.getValue() + " "+ entry.getKey();
-//                writer.write(temp);
-//                writer.newLine();
-//                }
-//                else{
-//                    
-//                }
-//            }
-//        }
-//        catch(IOException ex){
-//             
-//            System.out.println(ex.getMessage());
-//        } 
-//    }
+    }
 }

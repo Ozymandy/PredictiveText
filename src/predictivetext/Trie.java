@@ -31,18 +31,19 @@ public class Trie {
         temp.isLeaf = true;
         temp.Priority=priority;
     }
-    public List<String> getWords(String keyword){
+    public List<WordModel> getWords(String keyword){
         String tempword = keyword;
         Node temp = this.moveTo(keyword);
-        List<String> list = new ArrayList<String>();
+        List<WordModel> list = new ArrayList<WordModel>();
         for(Map.Entry<Character,Node> entry:temp.children.entrySet()){
             if(entry.getValue().isLeaf){
-                list.add(keyword.concat(entry.getKey().toString()));
+                list.add(new WordModel(keyword.concat(entry.getKey().toString()),entry.getValue().Priority));
             }
             else{
                 list.addAll(this.getWords(tempword.concat(entry.getKey().toString())));
             }
         }
+        Collections.sort(list,new WordModelComparator());
         return list;
     }
     public boolean find(String word){
@@ -79,6 +80,6 @@ public class Trie {
     static class Node {
         Map<Character,Node> children = new TreeMap<Character,Node>();
         boolean isLeaf; //check for intermediate node
-        int Priority;
+        Integer Priority;
     }
 }
