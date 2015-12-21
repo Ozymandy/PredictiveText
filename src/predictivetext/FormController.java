@@ -11,7 +11,9 @@ import javafx.fxml.Initializable;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
-
+import javafx.scene.control.TextArea;
+import javafx.beans.value.*;
+import java.util.*;
 /**
  * FXML Controller class
  *
@@ -20,13 +22,23 @@ import javafx.scene.control.TextField;
 public class FormController implements Initializable {
     @FXML
     private ListView<WordModel> listwords;
+    @FXML
     private TextField keyword;
+    @FXML
+    private TextArea outputTextArea;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
        Trie trie = new Trie();
        Service service = new Service(new TxtReader("E:\\War.txt"));
        service.writeToTrie(trie);
+       keyword.textProperty().addListener((observable, oldValue, newValue) -> {
+            List<WordModel> list = trie.getWords(newValue);
+            outputTextArea = new TextArea();
+            for(WordModel model:list)
+            {
+                //model.getWord()+" "+model.getPriority()
+            }
+       });
     }    
-    
 }
