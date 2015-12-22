@@ -6,8 +6,12 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="245.0" prefWidth="353.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="predictivetext.FormController">
+<AnchorPane id="AnchorPane" prefHeight="293.0" prefWidth="353.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="predictivetext.FormController">
    <children>
-      <TextField fx:id="keyword" layoutX="32.0" layoutY="39.0" />
+      <TextField fx:id="keyword" layoutX="102.0" layoutY="39.0" />
+      <Label layoutX="20.0" layoutY="43.0" text="Введите текст" />
+      <Label layoutX="20.0" layoutY="70.0" text="Результаты:" />
+      <VBox prefHeight="200.0" prefWidth="100.0" />
+      <VBox fx:id="vboxlayout" layoutX="20.0" layoutY="100.0" prefHeight="162.0" prefWidth="256.0" />
    </children>
 </AnchorPane>

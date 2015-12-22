@@ -4,17 +4,21 @@
  * and open the template in the editor.
  */
 package predictivetext;
+
 import java.util.*;
+
 /**
  *
  * @author Ozymandy
  */
-public class  WordModelComparator implements Comparator {
+public class WordModelComparator implements Comparator {
+
     public WordModelComparator() {
     }
+
     @Override
     public int compare(Object a, Object b) {
-        return ((Integer)((WordModel)b).getPriority()).compareTo(((Integer)((WordModel)a).getPriority()));
+        return ((Integer) ((WordModel) b).getPriority()).compareTo(((Integer) ((WordModel) a).getPriority()));
     }
 
 }

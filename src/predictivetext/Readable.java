@@ -4,11 +4,14 @@
  * and open the template in the editor.
  */
 package predictivetext;
+
 import java.util.*;
+
 /**
  *
  * @author Ozymandy
  */
 public interface Readable {
+
     List<String> read();
 }

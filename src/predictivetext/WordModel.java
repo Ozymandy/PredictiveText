@@ -10,21 +10,25 @@ package predictivetext;
  * @author Ozymandy
  */
 public class WordModel implements Comparable {
+
     private String word;
     private Integer priority;
-    public WordModel(String word, int priority){
+
+    public WordModel(String word, int priority) {
         this.word = word;
         this.priority = priority;
     }
-    public int getPriority(){
+
+    public int getPriority() {
         return priority;
     }
-    public String getWord(){
+
+    public String getWord() {
         return word;
     }
 
     @Override
     public int compareTo(Object o) {
-        return priority.compareTo((Integer)o);
+        return priority.compareTo((Integer) o);
     }
 }
