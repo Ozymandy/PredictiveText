@@ -45,6 +45,7 @@ public class PredictiveText extends Application {
 //           System.out.println(model.getWord()+" "+model.getPriority());
 //       }
 //       }
+// cr желательно в курсаче не иметь закомментированного кода
         launch(args);
     }
 }

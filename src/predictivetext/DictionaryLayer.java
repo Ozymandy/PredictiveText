@@ -12,7 +12,8 @@ import java.nio.file.*;
  *
  * @author Ozymandy
  */
-public class DictionaryLayer {
+public class DictionaryLayer { // cr не совсем понятно по имени класс что он делает
+    // cr похоже, что ничего не делает, т.к. нигде не используется
     private String DICTIONARY_PATH;
     public DictionaryLayer(String path){
         this.DICTIONARY_PATH = path;
@@ -33,7 +34,7 @@ public class DictionaryLayer {
                 writer.newLine();
                 }
                 else{
-                    
+                    // cr почему здесь пусто?
                 }
             }
         }

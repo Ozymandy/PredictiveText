@@ -29,22 +29,23 @@ public class FormController implements Initializable {
     @FXML
     private TextField keyword;
     @FXML
-    private TextArea outputTextArea;
+    private TextArea outputTextArea; // cr похоже, что нигде не используется
     @FXML
     public VBox vboxlayout;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        // cr что значит этот ТУДУ?
         Trie trie = new Trie();
         Service service = new Service(new TxtReader("E:\\War.txt"));
-        service.writeToTrie(trie);
+        service.writeToTrie(trie); // cr этот метод мог бы возвращать дерево
         keyword.textProperty().addListener((observable, oldValue, newValue) -> {
             if (!newValue.isEmpty()) {
                 vboxlayout.getChildren().clear();
                 List<WordModel> list = trie.getWords(newValue);
                 if (list == null) {
-                    vboxlayout.getChildren().add(new Label("Не найдено"));
+                    vboxlayout.getChildren().add(new Label("Не найдено"));// cr здесь необязательно создавать каждый раз новый лэйбл. Можно менять текст старому
                 } else {
                     for (int i = 0; i < 10; i++) {
                         if (i < list.size()) {

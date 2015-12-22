@@ -28,7 +28,8 @@ public class WordModel implements Comparable {
     }
 
     @Override
-    public int compareTo(Object o) {
+    public int compareTo(Object o) { // cr похоже, что этот метод тоже нигде не использован в проекте.
+        // cr А зря. Если бы ты его использовал, то тебе не нужен был бы дополнительный компаратор.
         return priority.compareTo((Integer) o);
     }
 }

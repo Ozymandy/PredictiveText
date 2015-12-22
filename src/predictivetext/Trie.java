@@ -18,7 +18,7 @@ public class Trie {
     public Trie() {
         root = new Node() {
             {
-                isLeaf = false;
+                isLeaf = false; // cr как вариант это можно сделать параметром конструктора
             }
         };
     }
@@ -88,7 +88,7 @@ public class Trie {
             }
             return temp;
         } else {
-            throw new NullPointerException();
+            throw new NullPointerException(); // cr не нужно бросать такое исключение. Оно само выбросится
         }
     }
 

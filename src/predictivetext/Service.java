@@ -14,7 +14,7 @@ import java.nio.file.*;
  *
  * @author Ozymandy
  */
-public class Service {
+public class Service { // cr имя не несёт абсолютно никакой информации
 
     private Readable reader;
 

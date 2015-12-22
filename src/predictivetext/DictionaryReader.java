@@ -12,7 +12,7 @@ import java.io.*;
  *
  * @author Ozymandy
  */
-public class DictionaryReader implements Readable {
+public class DictionaryReader implements Readable { // cr похоже, что этот класс нигде не используется (по крайней мере пока)
 
     private String readPath;
 
@@ -27,9 +27,9 @@ public class DictionaryReader implements Readable {
             String[] temparray;
             String temp;
             while ((temp = reader.readLine()) != null) {
-                temparray = temp.split(" ");
+                temparray = temp.split(" ");// cr предполагаю, что в каждой строчке должно быть слово и число
                 for (String str : temparray) {
-                    words.add(str.toLowerCase());
+                    words.add(str.toLowerCase()); // cr но ты добавляешь и слово и число в конечный список
                 }
             }
         } catch (IOException ex) {
